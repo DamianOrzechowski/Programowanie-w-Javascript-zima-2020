@@ -6,3 +6,4 @@ function showLightbox() {
     lightbox.style.transform = 'scale(1)'; 
     console.log('showlight');
 }
+const dfdfsfdsfd
