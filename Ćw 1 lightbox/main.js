@@ -1,9 +1,16 @@
-const f  = document.querySelector('#f');
-f.addEventListner('click',showLightbox)
+const images = document.querySelectorAll('.gallery img');
 
-function showLightbox() {
+for (let idx = 0; idx < images.length; idx++) {
+    const img = images[idx];
+    img.addEventListener('click', showLightbox);
+}
+
+function showLightbox(ev) {
+    console.log(ev.target);
     const lightbox = document.querySelector('.lightbox');
-    lightbox.style.transform = 'scale(1)'; 
+    const img = document.querySelector('.lightbox img');
+    const imgUrl = ev.target.src;
+    img.src = imgUrl;
+    lightbox.classList.add('visible');
     console.log('showlight');
 }
-const dfdfsfdsfd
