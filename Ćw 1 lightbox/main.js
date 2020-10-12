@@ -1,16 +1,22 @@
-const images = document.querySelectorAll('.gallery img');
+const lightbox = document.createElement('div')
+lightbox.id = 'lightbox'
+document.body.appendChild(lightbox)
 
-for (let idx = 0; idx < images.length; idx++) {
-    const img = images[idx];
-    img.addEventListener('click', showLightbox);
-}
-
-function showLightbox(ev) {
-    console.log(ev.target);
-    const lightbox = document.querySelector('.lightbox');
-    const img = document.querySelector('.lightbox img');
-    const imgUrl = ev.target.src;
-    img.src = imgUrl;
-    lightbox.classList.add('visible');
-    console.log('showlight');
-}
+const images  = document.querySelectorAll('img')
+images.forEach(image => {
+    image.addEventListener('click',e=>{
+        lightbox.classList.add('active')
+    const img = document.createElement('img')
+    img.scr = image.scr
+    while (lightbox.firstChild)
+    {
+        lightbox.removeChild(lightbox.firstChild)
+    }
+    lightbox.appendChild(img)
+    
+    })
+})
+lightbox.addEventListener('click',e=> {
+    if (e.target !== e.currentTarget) return
+    lightbox.classList.remove('active')
+})
