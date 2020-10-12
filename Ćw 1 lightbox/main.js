@@ -1,22 +1,25 @@
-const lightbox = document.createElement('div')
-lightbox.id = 'lightbox'
-document.body.appendChild(lightbox)
+const images = document.querySelectorAll('.grid img')
+const lightbox = document.querySelector('.lightbox')
+const close = document.querySelector('#close')
+const prev = document.querySelector('#prev')
+const next = document.querySelector('#next')
 
-const images  = document.querySelectorAll('img')
-images.forEach(image => {
-    image.addEventListener('click',e=>{
-        lightbox.classList.add('active')
-    const img = document.createElement('img')
-    img.src = image.src
-    while (lightbox.firstChild)
-    {
-        lightbox.removeChild(lightbox.firstChild)
-    }
-    lightbox.appendChild(img)
+
+
+
+close.addEventListener('click', hidelightbox)
+function hidelightbox ()
+{
+    lightbox.classList.remove('visible')
+}
+for (let index = 0; index < images.length; index++) {
+  const img = images[index]
+  img.addEventListener('click', showLightbox)
+}
+
+function showLightbox (ev) {
     
-    })
-})
-lightbox.addEventListener('click',e=> {
-    if (e.target !== e.currentTarget) return
-    lightbox.classList.remove('active')
-})
+    const lighboxImg = document.querySelector('.lightbox img')
+    lighboxImg.src = ev.target.src
+    lightbox.classList.add('visible')
+  }
