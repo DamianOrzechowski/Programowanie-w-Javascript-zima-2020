@@ -7,7 +7,7 @@ images.forEach(image => {
     image.addEventListener('click',e=>{
         lightbox.classList.add('active')
     const img = document.createElement('img')
-    img.scr = image.scr
+    img.src = image.src
     while (lightbox.firstChild)
     {
         lightbox.removeChild(lightbox.firstChild)
