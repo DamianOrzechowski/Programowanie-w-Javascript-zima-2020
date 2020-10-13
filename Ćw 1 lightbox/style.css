@@ -44,3 +44,9 @@ height: 100vh;
     background-color: black;
     border:  2px solid white;
 }
+
+#close{
+    position:absolute;
+    right: 10px;
+    bottom: 10px;
+}
