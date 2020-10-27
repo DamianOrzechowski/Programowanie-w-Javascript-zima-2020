@@ -2,12 +2,38 @@ document.body.addEventListener('keypress', onKeyPress);
 document.querySelector('#recordBtn').addEventListener('click', onRecordBtnClick);
 document.querySelector('#playBtn').addEventListener('click', onPlayBtnClick);
 document.querySelector('#clearBtn').addEventListener('click', onClearBtnClick);
-document.querySelector('#recordBtn2').addEventListener('click',onRecordBtnClick2);
-document.querySelector('#playBtn2').addEventListener('click', onPlayBtnClick2);
-document.querySelector('#clearBtn2').addEventListener('click', onClearBtnClick2);
+
+document.querySelector('#chanel1').addEventListener('click',onRecordChanel1BtnClick);
+document.querySelector('#chanel2').addEventListener('click',onRecordChanel2BtnClick);
+document.querySelector('#chanel3').addEventListener('click',onRecordChanel3BtnClick);
+document.querySelector('#chanel4').addEventListener('click',onRecordChanel4BtnClick);
+document.querySelector('#playallBtn').addEventListener('click',onPlayAllBtn);
+
 
 let recordStartTime;
-const recordedSounds = [];
+let selectedChanel = 1;//wybrany kanał
+//funkcja przełączania kanałów
+function onRecordChanel1BtnClick() {
+    selectedChanel = 1;
+}
+function onRecordChanel2BtnClick() {
+    selectedChanel = 2;
+}
+function onRecordChanel3BtnClick() {
+    selectedChanel = 3;
+}
+function onRecordChanel4BtnClick() {
+    selectedChanel = 4;
+}
+
+
+//tablice z magranymi dzwiękami 
+const recordedSounds1 = [];
+const recordedSounds2 = [];
+const recordedSounds3 = [];
+const recordedSounds4 = [];
+
+
 
 function onKeyPress(ev) {
     let soundName;
@@ -45,14 +71,51 @@ function onKeyPress(ev) {
             id: soundName, 
             time: soundTime
         };
-        recordedSounds.push(soundObj);
-        playSound(soundName);
+        switch(selectedChanel) {
+            case 1:
+                recordedSounds1.push(soundObj)
+                playSound(soundName)
+                console.log('pushed to 1')
+                break;
+            case 2:
+                recordedSounds2.push(soundObj)
+                playSound(soundName)
+                console.log('pushed to 2')
+                break;
+            case 3:
+                recordedSounds3.push(soundObj)
+                playSound(soundName)
+                console.log('pushed to 3')
+                break;
+            case 4:
+                recordedSounds4.push(soundObj)
+                playSound(soundName)
+                console.log('pushed to 4')
+                break;
+        }
+        
     }
 }
 function onRecordBtnClick() {
     recordStartTime = Date.now();
 }
 function onPlayBtnClick() {
+    let recordedSounds = []
+    recordedSounds.length = 0
+    switch(selectedChanel){
+        case 1:
+            recordedSounds = recordedSounds1
+            break
+        case 2:
+            recordedSounds = recordedSounds2
+            break
+        case 3:
+            recordedSounds = recordedSounds3
+            break
+        case 4:
+            recordedSounds = recordedSounds4
+            break
+    }
     for (let index = 0; index < recordedSounds.length; index++) {
         const soundObj = recordedSounds[index];
         setTimeout(
@@ -70,5 +133,65 @@ function playSound(id) {
     sound.play();
 }
 function onClearBtnClick(){
-    recordedSounds.length = 0;
+    switch(selectedChanel){
+        case 1:
+            recordedSounds1.length = 0
+            break
+        case 2:
+            recordedSounds2.length = 0;
+            break
+        case 3:
+            recordedSounds3.length = 0;
+            break
+        case 4:
+            recordedSounds4.length = 0;
+            break
+    }
+    
+}
+function onPlayAllBtn(){
+    for (let index = 0; index < recordedSounds1.length; index++) {
+        const soundObj = recordedSounds1[index];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+
+            },
+            soundObj.time
+        )
+        
+    }
+    for (let index = 0; index < recordedSounds2.length; index++) {
+        const soundObj = recordedSounds2[index];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+
+            },
+            soundObj.time
+        )
+        
+    }
+    for (let index = 0; index < recordedSounds4.length; index++) {
+        const soundObj = recordedSounds4[index];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+
+            },
+            soundObj.time
+        )
+        
+    }
+    for (let index = 0; index < recordedSounds3.length; index++) {
+        const soundObj = recordedSounds3[index];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+
+            },
+            soundObj.time
+        )
+        
+    }
 }
