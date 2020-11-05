@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoteKeep</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section>
-        Title: <input type="text" name="" id="noteTitle"><br>
-        Content: <textarea id="noteContent"></textarea><br>
-        <button id="noteAdd">Add</button>
-    </section>
+    <div class="all">
+        <div class="titleall">
+        <p class="title">Tytuł:</p>
+        <input type="text" name="" id="noteTitle">
+        </div>
+        <div class="contentall">
+        <p class="content">Wypełnienie:</p> 
+        <textarea id="noteContent"></textarea>
+        </div>
+        <div class="colorall">
+        <p>Kolor Kartki:</p><input type="color" id="Color" name="head"
+           value="#e66465">
+        </div>
+        <div class="buttonsall">
+        <button id="noteAdd">Dodaj notatkę</button>
+        <button id="shownotes">Pokaż notatnik</button>
+        </div>
+    </div>
     <main>
 
     </main>
