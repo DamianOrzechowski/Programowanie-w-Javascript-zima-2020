@@ -1,3 +1,4 @@
+//
 const lsKey = 'notes'
 // 1. zapisywanie notatki i tablicy notatek w localStorage
 function saveNote (note) {
