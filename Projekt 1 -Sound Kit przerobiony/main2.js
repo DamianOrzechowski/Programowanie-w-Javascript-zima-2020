@@ -4,7 +4,38 @@ import Chanel from "./chanel.js"
 document.body.addEventListener('keypress', onKeyPress);
 document.querySelector('#recordBtn').addEventListener('click', onRecordBtnClick);
 document.querySelector('#playBtn').addEventListener('click', onPlayBtnClick);
+document.querySelector('#playallBtn').addEventListener('click',onPlayAllBtn);
+
+const chanelSelectors = document.querySelectorAll('.chanelSelector')
+
 const chanel1 = new Chanel()
+const chanel2 = new Chanel()
+const chanel3 = new Chanel()
+const chanel4 = new Chanel()
+
+let currentchanel;
+
+chanelSelectors.forEach(button => {
+    button.addEventListener('click',selectedChanel)
+    
+})
+
+function selectedChanel (ev) {
+    switch (ev.target.id) {
+      case 'chanel1':
+        currentchanel = chanel1
+        break
+      case 'chanel2':
+        currentchanel = chanel2
+        break
+      case 'chanel3':
+        currentchanel = chanel3
+        break
+      case 'chanel4':
+        currentchanel = chanel4
+        break
+    }
+  }
 
 function onKeyPress(ev) {
     let soundName;
@@ -37,16 +68,24 @@ function onKeyPress(ev) {
         soundName = 'tom';
     }
     if(soundName){
-        chanel1.AddSound(new Percussion(soundName))
-        chanel1.playNewest()
+        currentchanel.AddSound(new Percussion(soundName))
+        currentchanel.playNewest()
     }
 }
+function onPlayAllBtn(){
+chanel1.Playsounds();
+chanel2.Playsounds();
+chanel3.Playsounds();
+chanel4.Playsounds();
+}
 function onRecordBtnClick(){
-chanel1.StartRec()
+currentchanel.StartRec()
 }
 
 
 function onPlayBtnClick(){
-chanel1.Playsounds()
+    console.log(currentchanel)
+currentchanel.Playsounds()
+
 }
     
