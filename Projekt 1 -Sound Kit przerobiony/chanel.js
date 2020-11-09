@@ -2,7 +2,11 @@ function Chanel(){
     this.Tracks = []
 
     this.AddSound =(sound) =>{
-        this.Tracks.push(sound)
+        this.Tracks.push(sound);
+    }
+    this.StartRec =() =>{
+        this.Tracks.length = 0;
+        this.recStartDate = Date.now();
     }
 
     this.Playsounds = () =>{
@@ -10,11 +14,15 @@ function Chanel(){
          setTimeout(()=>{
             sound.PlaySound()
          },
-         1000
+         sound.soundDate - this.recStartDate
          )
 
         
-    }
+         }
+          )
+}
+this.playNewest = () => {
+    this.Tracks[this.Tracks.length - 1].PlaySound()
 }
 }
 

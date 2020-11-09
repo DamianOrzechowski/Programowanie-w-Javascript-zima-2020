@@ -1,5 +1,6 @@
 function Percussion (SoundId) {
    this.SoundId = SoundId;
+   this.soundDate = Date.now()
     this.Test =() => {
       console.log('działa')
     }
