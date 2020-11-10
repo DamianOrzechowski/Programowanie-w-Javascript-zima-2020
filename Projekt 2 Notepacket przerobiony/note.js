@@ -4,7 +4,8 @@ constructor (title ,content , color ='red',pinned = false){
     this.content = content
     this.color = color
     this.pinned = pinned
-    this.date = '' + Date.now()
+    this.createdDate = new Date();
+    this.id = '' + Date.now();
  
 }
 }
