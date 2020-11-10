@@ -27,6 +27,7 @@ class NotesUI {
         htmlContent.innerHTML = note.content
         htmlDate.innerHTML = note.createdDate.toLocaleString()
         htmlRemoveBtn.innerHTML = 'usuń'
+
         if(note.pinned){
         htmlPinnedBtn.innerHTML = 'odepnij'
         }
@@ -39,7 +40,7 @@ class NotesUI {
         htmlNote.appendChild(htmlDate)
         htmlNote.appendChild(htmlRemoveBtn)
         htmlNote.appendChild(htmlPinnedBtn)
-        
+        htmlNote.style.backgroundColor = note.color
 
         return htmlNote;
     }
@@ -50,7 +51,7 @@ class NotesUI {
     addNote(note) {
         const htmlNote = this.createNote(note);
         this.notesContainer.appendChild(htmlNote)
-        
+
     }
     removeNote(id) {
         const htmlNote = this.getNote(id);
