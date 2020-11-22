@@ -10,7 +10,22 @@ let poY=250; //pozycja Y
 let dziurapoX=20;
 let dziurapoY=20;
 function Start(){ //funkcja rozpoczęcia gry
+    
 window.addEventListener('deviceorientation', orintacjaUrzadzenia);
+pozycjaStart();
+}
+
+function pozycjaStart(){
+poY = Math.floor(Math.random()*window.innerHeight);
+poX = Math.floor(Math.random()*window.innerWidth);
+dziurapoX = Math.floor(Math.random()*window.innerWidth);
+dziurapoY = Math.floor(Math.random()*window.innerHeight);
+dziura.style.left = dziurapoX + 'px';
+dziura.style.top = dziurapoY + 'px';
+kula.style.left = poX + 'px';
+kula.style.top = poY + 'px';
+
+
 }
 
 function orintacjaUrzadzenia(e){
