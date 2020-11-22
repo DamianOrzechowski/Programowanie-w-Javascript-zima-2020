@@ -21,17 +21,17 @@ function stoper(){
   if(!aktczas){
     aktczas = !aktczas
     czas = 0
-    czaspauza = setInterval(start,10)
+    czaspauza = setInterval(startczas,10)
   }
   else{
     czas = 0
     aktczas = !aktczas
       //funkcja do resetowania
      // aktczas = false;
-      czas = 0;
+      
   }
 }
-const start = () => {
+const startczas = () => {
 czas++;
 panelczas.textContent =(czas/100).toFixed(2)
 }
@@ -46,6 +46,7 @@ function Start(){ //funkcja rozpoczęcia gry
   dziura.style.backgroundColor = "green";
   pozycjaStart();
   stoper();//włączenie stopera
+  stoper();
 }
 
 function Wygrales(){//funkcaj konca
@@ -53,6 +54,7 @@ function Wygrales(){//funkcaj konca
   kula.style.backgroundColor = "yellow";
   dziura.style.backgroundColor = "yellow";
   clearInterval(czaspauza);
+  
   
 
 }
