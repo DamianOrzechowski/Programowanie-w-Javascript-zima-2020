@@ -3,20 +3,22 @@ let dziura = document.querySelector("#dziura")
 let plansza = document.querySelector("#plansza");
 document.querySelector("#btnstart").addEventListener('click',Start);
 
+document.getElementById("napis").style.visibility = "hidden";//ustawienie braku widoczności na wygrana
+
 let prX =0; // prędkość X
 let prY =0; //prędkość Y
 let poX =250; // pozycja X
 let poY=250; //pozycja Y
-let dziurapoX=20;
-let dziurapoY=20;
+let dziurapoX=250;
+let dziurapoY=250;
 function Start(){ //funkcja rozpoczęcia gry
-    
 window.addEventListener('deviceorientation', orintacjaUrzadzenia);
+document.getElementById("napis").style.visibility = "hidden";
 pozycjaStart();
 }
-function Koniec(){//funkcaj konca
+function Wygrales(){//funkcaj konca
+    document.getElementById("napis").style.visibility = "visible";
     
-    Start()
 }
 
 function pozycjaStart(){ //ustawienie pozycji startowej
@@ -47,11 +49,12 @@ function przesuwaniekuli(){ //poruszanie się kuli po planszy
     }
     if(poY+prY<window.innerHeight-50 && poY+prY>0){
         poY+=prY;
-        kula.style.top=poY+'px';        
+        kula.style.top=poY+'px';  
+             
     }
     if(Math.abs((poY - dziurapoY)) < 6 && Math.abs((poX - dziurapoX)) <6){//sprawdzenie
-        console.log("koniec")
-        Koniec();
+        
+        Wygrales();
     }
 
     

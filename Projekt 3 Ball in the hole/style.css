@@ -16,3 +16,15 @@
     
     background-color: red;
 }
+
+
+#wygrana{
+    width: 200px;
+    height: 200px;
+    display: flex;
+
+}
+#panel{
+    display: flex;
+    justify-content: space-between;
+}
