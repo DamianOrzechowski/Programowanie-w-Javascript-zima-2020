@@ -19,12 +19,16 @@ let czaspauza;
 const panelczas = document.querySelector("#czas");
 function stoper(){
   if(!aktczas){
-    aktczas = true
+    aktczas = !aktczas
+    czas = 0
     czaspauza = setInterval(start,10)
   }
   else{
+    czas = 0
+    aktczas = !aktczas
       //funkcja do resetowania
-      aktczas = false;
+     // aktczas = false;
+      czas = 0;
   }
 }
 const start = () => {
@@ -48,6 +52,7 @@ function Wygrales(){//funkcaj konca
   document.getElementById("napis").style.visibility = "visible";
   kula.style.backgroundColor = "yellow";
   dziura.style.backgroundColor = "yellow";
+  clearInterval(czaspauza);
   
 
 }
@@ -77,7 +82,8 @@ function przesuwaniekuli(){ //poruszanie się kuli po planszy
         kula.style.top=poY+'px';  
     }
     if(Math.abs((poY - dziurapoY)) < 6 && Math.abs((poX - dziurapoX)) <6){//sprawdzenie
+      
         Wygrales();
-        clearInterval(czaspauza);
+        
     }
 }
