@@ -21,12 +21,12 @@ function SnowFlake(x,y,speed,size){
     }
     //funkcja zapętlenia śnieżek
     this.snowLoop = function(){
-        this.letitsnow();
         if(this.y > innerHeight){
-        x= Math.random()*window.innerWidth;
-        y=0;
+            this.x= Math.random()*window.innerWidth;
+            this.y=-10;
         }
         this.y += this.speed;
+        this.letitsnow();
     }
 
 }
@@ -34,8 +34,8 @@ function SnowFlake(x,y,speed,size){
 let snowArray = [];
 for(let i = 0; i <90;i++){
 let x = Math.random()*innerWidth;
-let y = 0;
-let speed = Math.floor(Math.random()*4)+1;
+let y = -10;
+let speed = Math.random()*10;
 let size = Math.floor(Math.random()*4)+1;
 snowArray.push(new SnowFlake(x,y,speed,size));
 }
@@ -50,40 +50,6 @@ function animateSnow(){
 }
 animateSnow();
 
-/*let y = 0;
-let size = (Math.random()*8)+1;
-//randomowy start 
-let x = Math.random()*window.innerWidth;
-function anime(){
-    requestAnimationFrame(anime)
-    c.clearRect(0,0,innerWidth,innerHeight)
-    //var x = Math.random() * window.innerWidth;
-    
-    
-    c.beginPath();
-    //c.arc(x,0,5,0,Math.PI * 2,false); - wysztkie kulki są u góry 
-    c.arc(x,y,size,0,Math.PI * 2,false);
-    c.fillStyle = "white";
-    //wypełnienie śnieżki na biało 
-    c.fill();
-
-    //funkcja która odtwarza śnieg od nowa
-    if (y > innerHeight){
-        x= Math.random()*window.innerWidth;
-        y=0;
-
-    } 
-    //y to prędkość 
-    y+=5;
-}
-let letitsnow =[];
-
-for (let i =0; i<100;i++){
-    let
-}
-    
-
-anime();*/
 
 
 
