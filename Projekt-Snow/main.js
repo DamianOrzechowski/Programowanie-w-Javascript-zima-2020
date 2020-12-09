@@ -15,20 +15,40 @@ function SnowFlake(x,y,speed,size){
     //funkcja pojawienia się śnieżki 
     this.letitsnow = function(){
      c.beginPath();
-     c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+     c.arc(this.x,this.y,this.size,0,Math.PI*2,false);
      c.fillStyle ="white";
      c.fill();
     }
     //funkcja zapętlenia śnieżek
     this.snowLoop = function(){
+        this.letitsnow();
         if(this.y > innerHeight){
         x= Math.random()*window.innerWidth;
         y=0;
         }
+        this.y += this.speed;
     }
 
 }
 
+let snowArray = [];
+for(let i = 0; i <90;i++){
+let x = Math.random()*innerWidth;
+let y = 0;
+let speed = Math.floor(Math.random()*4)+1;
+let size = Math.floor(Math.random()*4)+1;
+snowArray.push(new SnowFlake(x,y,speed,size));
+}
+
+function animateSnow(){
+    requestAnimationFrame(animateSnow);
+    c.clearRect(0,0,innerWidth,innerHeight);
+    for (let i = 0; i < snowArray.length;i++){
+        snowArray[i].snowLoop();
+    }
+
+}
+animateSnow();
 
 /*let y = 0;
 let size = (Math.random()*8)+1;
