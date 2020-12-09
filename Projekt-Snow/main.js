@@ -35,8 +35,24 @@ let snowArray = [];
 for(let i = 0; i <90;i++){
 let x = Math.random()*innerWidth;
 let y = -10;
-let speed = Math.random()*10;
+//let speed = Math.random()*10;
 let size = Math.floor(Math.random()*4)+1;
+let speed;
+switch(size){
+case 1:
+speed=Math.random()*3;
+break;
+case 2:
+ speed=4+(Math.random()*6);
+break;
+case 3:
+    speed=7+(Math.random()*9);
+break;
+case 4:
+    speed=10+(Math.random()*11);
+break;
+}
+console.log(size)
 snowArray.push(new SnowFlake(x,y,speed,size));
 }
 
