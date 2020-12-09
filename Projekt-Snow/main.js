@@ -6,13 +6,36 @@ canvas.height = window.innerHeight;
 
 let c = canvas.getContext('2d');
 
-let y = 0;
+function SnowFlake(x,y,speed,size){
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.size = size;
+
+    //funkcja pojawienia się śnieżki 
+    this.letitsnow = function(){
+     c.beginPath();
+     c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+     c.fillStyle ="white";
+     c.fill();
+    }
+    //funkcja zapętlenia śnieżek
+    this.snowLoop = function(){
+        if(this.y > innerHeight){
+        x= Math.random()*window.innerWidth;
+        y=0;
+        }
+    }
+
+}
+
+
+/*let y = 0;
 let size = (Math.random()*8)+1;
 //randomowy start 
 let x = Math.random()*window.innerWidth;
 function anime(){
     requestAnimationFrame(anime)
-    console.log("dziala")
     c.clearRect(0,0,innerWidth,innerHeight)
     //var x = Math.random() * window.innerWidth;
     
@@ -23,7 +46,24 @@ function anime(){
     c.fillStyle = "white";
     //wypełnienie śnieżki na biało 
     c.fill();
+
+    //funkcja która odtwarza śnieg od nowa
+    if (y > innerHeight){
+        x= Math.random()*window.innerWidth;
+        y=0;
+
+    } 
     //y to prędkość 
     y+=5;
 }
-anime();
+let letitsnow =[];
+
+for (let i =0; i<100;i++){
+    let
+}
+    
+
+anime();*/
+
+
+
