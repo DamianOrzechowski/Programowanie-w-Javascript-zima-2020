@@ -1,3 +1,7 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    
+}
 #kula {
     border-radius: 50%;
     width: 25px;
@@ -18,12 +22,38 @@
 }
 
 
+
+#panel{
+    display: flex;
+}
+button {
+    background-color: #4CAF50; 
+    border: solid white 2px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+
+  
+}
+#stoper{
+    background-color: #4CAF50; 
+    border: solid white 2px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;   
+}
 #wygrana{
+    display: flex;
+    justify-content: center ;
     width: 200px;
     height: 200px;
-    display: flex;
-
-}
-#panel{
-    
+    color: green;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30px;
 }
