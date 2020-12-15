@@ -51,8 +51,8 @@ function Start(){ //funkcja rozpoczęcia gry
 
 function Wygrales(){//funkcaj konca
   document.getElementById("napis").style.visibility = "visible";
-  kula.style.backgroundColor = "yellow";
-  dziura.style.backgroundColor = "yellow";
+  kula.style.visibility = "hidden";
+  dziura.style.visibility = "hidden";
   clearInterval(czaspauza);
   
   
