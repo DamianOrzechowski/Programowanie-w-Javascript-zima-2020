@@ -7,7 +7,7 @@ class Db {
         localStorage.setItem(this.cardsLSKey, JSON.stringify(cards));
     }
     getCards() {
-        return JSON.parse(localStorage.getItem(this.cardsKey));
+        return JSON.parse(localStorage.getItem(this.cardsLSKey));
         
     }
 }
