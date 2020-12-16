@@ -6,12 +6,15 @@ reason => console.log(reason)
 )*/
 import UI from './UI.js'
 import Card from './Card.js'
+import Cards from './Cards.js'
 
 document.querySelector('#addCityButton').addEventListener('click', addCity)
-const cityUI = new UI('#cardArea')
+//const cityUI = new UI('#cardArea')
 
 function addCity () {
   document.querySelector('#cityName').value
     ? cityUI.addCard(new Card(document.querySelector('#cityName').value))
     : alert('Musisz podać nazwę miasta')
 }
+
+

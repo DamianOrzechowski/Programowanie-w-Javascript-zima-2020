@@ -4,6 +4,7 @@ class Card {
   constructor (cityName) {
     this.City = cityName
     this.Temperature = '000'
+    this.id = '' + Date.now();
   }
 
   fetchData () {

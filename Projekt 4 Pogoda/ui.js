@@ -14,10 +14,15 @@ class UI {
       const htmlTemperature = document.createElement('p')
       // const htmlWeather = document.createElement('h4') DODAC POZNIEJ
       const htmlRemoveBtn = document.createElement('button')
-  
+      const htmlDate = document.createElement('h4')
+      
+      
+      
       htmlCity.innerHTML = card.City
       htmlTemperature.innerHTML = card.Temperature
       htmlRemoveBtn.innerHTML = 'Usuń'
+      
+
   
       htmlCard.appendChild(htmlCity)
       htmlCard.appendChild(htmlTemperature)
