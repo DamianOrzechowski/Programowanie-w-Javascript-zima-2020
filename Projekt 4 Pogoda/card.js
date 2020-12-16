@@ -1,6 +1,6 @@
 
 const myKey = '6e0b2bd7dda1f02a5eb95ce5a13cf5c3'
-class wehatercard {
+class  Card {
     constructor(cityName) {
         this.City = cityName ,
         this.Temperature = '12'
@@ -19,4 +19,4 @@ class wehatercard {
     }
 
 }
-export default Card
+export default card
