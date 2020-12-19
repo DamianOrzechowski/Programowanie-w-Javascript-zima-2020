@@ -27,7 +27,8 @@ class Cards {
           this.UIcards.addCard(card)
         }
         )*/
-        //this.db.saveCards(this.CardsArr)
+        promises.then(
+         result => this.db.saveCards(this.CardsArr))
       }
     removeNote(id) {
         
