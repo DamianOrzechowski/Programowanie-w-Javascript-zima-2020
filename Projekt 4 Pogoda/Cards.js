@@ -1,3 +1,4 @@
+import Card from './Card.js';
 import Db from './DB.js'
 import UI from './UI.js'
 class Cards {
@@ -7,11 +8,27 @@ class Cards {
         this.UIcards = new UI(containerSelector)
     }
 
-    addCard(card) {
-        this.CardsArr.push(card);
-        this.db.saveCards(this.CardsArr);
-        this.UIcards.addCard(card);
-    }
+    addCard (card) {
+        card.fetchData()
+        const promises = new Promise((resolve,reject) =>{
+            setTimeout(() =>{resolve("overment") },2000)
+             
+        })
+        promises.then(
+          result=>  this.CardsArr.push(card)
+        )
+        promises.then(
+            result=>   this.UIcards.addCard(card)
+        )
+
+        /*card.fetchData().then(() => {
+          console.log('then')
+          this.CardsArr.push(card)
+          this.UIcards.addCard(card)
+        }
+        )*/
+        //this.db.saveCards(this.CardsArr)
+      }
     removeNote(id) {
         
     }
