@@ -11,22 +11,32 @@ class UI {
       const htmlCard = document.createElement('div')
       htmlCard.classList.add('card')
       const htmlCity = document.createElement('h1')
-      const htmlTemperature = document.createElement('p')
+      const htmlTemperaturemax = document.createElement('p')
+      const htmlTemperaturelow = document.createElement('p')
+      const htmlrh = document.createElement('p')
+      const htmlWeather = document.createElement('p')
       // const htmlWeather = document.createElement('h4') DODAC POZNIEJ
       const htmlRemoveBtn = document.createElement('button')
-      const htmlDate = document.createElement('h4')
+      //const htmlDate = document.createElement('h4')
       
       
       
       htmlCity.innerHTML = card.City
-      htmlTemperature.innerHTML = card.Temperature
+      htmlWeather.innerHTML = card.weather
+      htmlTemperaturemax.innerHTML = (`Temp max ${card.Temperaturemax}`)
+      htmlTemperaturelow.innerHTML = (`Temp low ${card.Temperaturelow}`)
+      htmlrh.innerHTML = (`Humdity ${card.rh}%`)
       htmlRemoveBtn.innerHTML = 'Usuń'
       
 
   
       htmlCard.appendChild(htmlCity)
-      htmlCard.appendChild(htmlTemperature)
+      htmlCard.appendChild(htmlWeather)
+      htmlCard.appendChild(htmlTemperaturemax)
+      htmlCard.appendChild(htmlTemperaturelow)
+      htmlCard.appendChild(htmlrh)
       htmlCard.appendChild(htmlRemoveBtn)
+
       
       return htmlCard
     }

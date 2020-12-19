@@ -6,7 +6,10 @@ class Card {
   constructor (cityName) {
     this.City = cityName
     this.id = '' + Date.now()
-    this.Temperature = 0
+    this.Temperaturemax = 0
+    this.Temperaturelow = 0
+    this.rh = 0
+    this.weather = 0
   }
 
   async fetchData () {
@@ -18,7 +21,10 @@ class Card {
 
   assignData (JsonData) {
     console.log(this.City, JsonData.data[0].max_temp)
-    this.Temperature = JsonData.data[0].max_temp
+    this.Temperaturemax = JsonData.data[0].max_temp
+    this.Temperaturelow = JsonData.data[0].low_temp
+    this.rh = JsonData.data[0].rh
+    this.weather = JsonData.data[0].weather.description
   }
 }
 
