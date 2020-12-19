@@ -27,6 +27,7 @@ class UI {
       htmlCard.appendChild(htmlCity)
       htmlCard.appendChild(htmlTemperature)
       htmlCard.appendChild(htmlRemoveBtn)
+      
       return htmlCard
     }
   
