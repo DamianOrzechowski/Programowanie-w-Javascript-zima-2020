@@ -10,6 +10,8 @@ class Card {
     this.Temperaturelow = 0
     this.rh = 0
     this.weather = 0
+    this.Description = 'abc'
+    this.Icon = 'abc.png'
   }
 
   async fetchData () {
@@ -25,6 +27,8 @@ class Card {
     this.Temperaturelow = JsonData.data[0].low_temp
     this.rh = JsonData.data[0].rh
     this.weather = JsonData.data[0].weather.description
+    this.Description = JsonData.data[0].weather.description
+    this.Icon = JsonData.data[0].weather.icon
   }
 }
 

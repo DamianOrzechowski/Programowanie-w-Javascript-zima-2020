@@ -15,7 +15,8 @@ class UI {
       const htmlTemperaturelow = document.createElement('p')
       const htmlrh = document.createElement('p')
       const htmlWeather = document.createElement('p')
-      // const htmlWeather = document.createElement('h4') DODAC POZNIEJ
+      const htmlDescription = document.createElement('p')
+      const htmlIcon = document.createElement('img')
       const htmlRemoveBtn = document.createElement('button')
       //const htmlDate = document.createElement('h4')
       
@@ -23,14 +24,17 @@ class UI {
       
       htmlCity.innerHTML = card.City
       htmlWeather.innerHTML = card.weather
-      htmlTemperaturemax.innerHTML = (`Temp max ${card.Temperaturemax}`)
-      htmlTemperaturelow.innerHTML = (`Temp low ${card.Temperaturelow}`)
-      htmlrh.innerHTML = (`Humdity ${card.rh}%`)
+      htmlDescription.innerHTML = card.Description
+      htmlIcon.src = `https://www.weatherbit.io/static/img/icons/${card.Icon}.png`
+      htmlTemperaturemax.innerHTML = (`Maksymalna Temperatura ${card.Temperaturemax}`)
+      htmlTemperaturelow.innerHTML = (`Minimalna Temperatura ${card.Temperaturelow}`)
+      htmlrh.innerHTML = (`Wilgotność  ${card.rh}%`)
       htmlRemoveBtn.innerHTML = 'Usuń'
       
 
   
       htmlCard.appendChild(htmlCity)
+      htmlCard.appendChild(htmlIcon)
       htmlCard.appendChild(htmlWeather)
       htmlCard.appendChild(htmlTemperaturemax)
       htmlCard.appendChild(htmlTemperaturelow)
