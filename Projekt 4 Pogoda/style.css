@@ -1,22 +1,57 @@
 body{
     text-align: center;
-    background: #3494E6;  /* fallback for old browsers /
+    background: linear-gradient(to left, blue 0%, purple 100%);
+      /* fallback for old browsers /
     background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  / Chrome 10-25, Safari 5.1-6 /
     background: linear-gradient(to right, #EC6EAD, #3494E6); / W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
 }
+button {
+    background-color:  white; 
+    border: solid black 0.5px;
+    color: black;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+  
+}
+.AddButton
 .input{
     display: flex;
     flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    
 }
+
 .cardArea{
+    
     margin-top: 2vh;
     display: flex;
     justify-content: center;
+
+   
 }
 .card{
+    background-color:  white;
     min-width: 200px;
     min-height: 300px;
-    border: 2px solid white;
-    margin: 2px;
+    border: 0.5px solid black;
+    margin: 5px;
+    border-radius: 10px;
+}
+.title {
+    font-size: 20px;
+    background-color: white;
+    border: solid black 0.5px;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
