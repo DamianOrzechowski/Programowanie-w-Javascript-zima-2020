@@ -18,16 +18,34 @@ align-content: center;
 grid-gap: 100px;
 }
 .namesound {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,200px);
     justify-content: center;
     color: white;
     
 }
-p{
+.h1{
+    margin-top: 10px;
     
+}
+
+.soundletter{
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 2px;
     margin-right: 2px;
     text-transform: uppercase;
+    text-align: center;
+    color: white;
+        
+
+    
+        
+
+
+}
+.soundletteronclick{
+color: yellow;
 }
 .button {
     display: flex;
@@ -43,8 +61,20 @@ p{
     
 }
 button {
-    margin-left: 5px;
-    margin-right: 5px;
+margin-left: 5px;
+margin-right: 5px;
+    
+background-color:  white; 
+        
+color: black;
+padding: 4px 12px;
+text-align: center;
+text-decoration: none;
+font-size: 10px;
+font-family: 'Courier New', Courier, monospace;
+border-radius: 10px;
+      
+    
 }
 .h1{
     color: white;
