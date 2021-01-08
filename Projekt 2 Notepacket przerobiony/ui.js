@@ -54,6 +54,7 @@ class NotesUI {
 
     }
     removeNote(id) {
+        //console.log('hej')
         const htmlNote = this.getNote(id);
         this.notesContainer.removeChild(htmlNote)
     }

@@ -19,6 +19,7 @@ class Card {
       .then(response => {
         return response.json()
       }).then(this.assignData.bind(this))
+      
   }
 
   assignData (JsonData) {

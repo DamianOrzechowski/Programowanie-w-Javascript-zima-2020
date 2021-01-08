@@ -8,7 +8,6 @@ document.querySelector('#noteAdd').addEventListener('click', addNoteto)
 const notePad = new Notes('main')
 notePad.loadNotesFromLocalStorage()
 function addNoteto(){
-    console.log('main')
     const noteTitle = document.querySelector('#noteTitle').value
     const noteContent = document.querySelector('#noteContent').value
     const noteColor = document.querySelector('#Color').value

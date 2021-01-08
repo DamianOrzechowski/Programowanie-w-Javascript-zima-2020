@@ -6,7 +6,7 @@ body{
 }
 button {
     background-color:  white; 
-    border: solid black 0.5px;
+    border: solid black 0.25px;
     color: black;
     padding: 4px 12px;
     text-align: center;
@@ -37,14 +37,13 @@ button {
     background-color:  white;
     min-width: 200px;
     min-height: 300px;
-    border: 0.5px solid black;
     margin: 5px;
     border-radius: 10px;
 }
 .title {
     font-size: 20px;
     background-color: white;
-    border: solid black 0.5px;
+   
     padding: 4px 12px;
     text-align: center;
     text-decoration: none;
