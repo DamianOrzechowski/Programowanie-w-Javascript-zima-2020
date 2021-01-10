@@ -24,11 +24,11 @@ class Cards {
         promises.then(
          result => this.db.saveCards(this.CardsArr))*/
         ///////
-        const promises = new Promise((resolve,reject)=>{
+        /*const promises = new Promise((resolve,reject)=>{
             resolve(card.fetchData())
             
-        })
-        promises.then(
+        })*/
+        card.fetchData().then(
             result=>  this.CardsArr.push(card)
 
           )
