@@ -1,143 +1,142 @@
 //
 const lsKey = 'notes'
-// 1. zapisywanie notatki i tablicy notatek w localStorage
+// zapisywanie notatki i tablicy notatek w localStorage
 function saveNote (note) {
-  notes.push(note)
-  localStorage.setItem(lsKey, JSON.stringify(notes))
+    notes.push(note)
+    localStorage.setItem(lsKey, JSON.stringify(notes))
 }
+
 // notatka: title, content, colour, pinned, createDate
 const notes = []
 
 const note = {
-  title: '',
-  content: '',
-  colour: '#ff1280',
-  pinned: false,
-  createDate: ''
+    title: '',
+    content: '',
+    colour: '#ff1280',
+    pinned: false,
+    createDate: ''
 }
+showNotes()
+// modyfkowanie struktury htmla-ładowanie po otwarciu strony/dodaniu nowej notatki
 
-// 3. modyfkowanie struktury htmla-ładowanie po otwarciu strony/dodaniu nowej notatki
-document.querySelector('#shownotes').addEventListener('click', showNotes)
 function showNotes () {
-  const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
-  console.log(notesFromLocalStorage)
+    const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
 
-  const mappedNotes = notesFromLocalStorage.map(note => {
-    note.createDate = new Date(note.createDate)
-    return note
-  })
+    const mappedNotes = notesFromLocalStorage.map(note => {
+        note.createDate = new Date(note.createDate)
+        return note
+    })
 
-  const notesContainer = document.querySelector('main')
-  // usuwanie starych kontenerow przez zaladowaniem nowych
-  while (notesContainer.firstChild) {
-    notesContainer.removeChild(notesContainer.lastChild)
-  }
-
-  // drugi sposób
-  for (const note of mappedNotes) {
-    // console.log(note.createDate.toLocaleString());
-    const htmlNote = document.createElement('section')
-    const htmlTitle = document.createElement('h1')
-    const htmlContent = document.createElement('p')
-    const htmlDate = document.createElement('h4')
-    const htmlRemoveBtn = document.createElement('button')
-    const htmlPinnedBtn = document.createElement('button')
-
-    htmlTitle.innerHTML = note.title
-    htmlContent.innerHTML = note.content
-    htmlDate.innerHTML = note.createDate.toLocaleString()
-    htmlRemoveBtn.innerHTML = 'usuń'
-    if(note.pinned){
-    htmlPinnedBtn.innerHTML = 'odepnij'
-    }
-    else{
-    htmlPinnedBtn.innerHTML = 'przypnij'
+    const notesContainer = document.querySelector('main')
+    // usuwanie starych kontenerow przez zaladowaniem nowych
+    while (notesContainer.firstChild) {
+        notesContainer.removeChild(notesContainer.lastChild)
     }
 
-    htmlRemoveBtn.addEventListener('click', removeNote)
-    htmlPinnedBtn.addEventListener('click', pinnedNote)
+    //wyświtlanie notatek z pamięci lokalnej
+    for (const note of mappedNotes) {
+        const htmlNote = document.createElement('section')
+        const htmlTitle = document.createElement('h1')
+        const htmlContent = document.createElement('p')
+        const htmlDate = document.createElement('h4')
+        const htmlRemoveBtn = document.createElement('button')
+        const htmlPinnedBtn = document.createElement('button')
 
-    htmlNote.classList.add('note')
-    htmlNote.appendChild(htmlTitle)
-    htmlNote.appendChild(htmlContent)
-    htmlNote.appendChild(htmlDate)
-    htmlNote.appendChild(htmlRemoveBtn)
-    htmlNote.appendChild(htmlPinnedBtn)
+        htmlTitle.innerHTML = note.title
+        htmlContent.innerHTML = note.content
+        htmlDate.innerHTML = note.createDate.toLocaleString()
+        htmlRemoveBtn.innerHTML = 'usuń'
+        if(note.pinned){
+            htmlPinnedBtn.innerHTML = 'odepnij'
+        }
+        else{
+            htmlPinnedBtn.innerHTML = 'przypnij'
+        }
 
-    htmlNote.style.backgroundColor = note.colour
+        htmlRemoveBtn.addEventListener('click', removeNote)
+        htmlPinnedBtn.addEventListener('click', pinnedNote)
 
-    note.pinned ? notesContainer.prepend(htmlNote) : notesContainer.appendChild(htmlNote)
-  }
+        htmlNote.classList.add('note')
+        htmlNote.appendChild(htmlTitle)
+        htmlNote.appendChild(htmlContent)
+        htmlNote.appendChild(htmlDate)
+        htmlNote.appendChild(htmlRemoveBtn)
+        htmlNote.appendChild(htmlPinnedBtn)
+
+        htmlNote.style.backgroundColor = note.colour
+
+        note.pinned ? notesContainer.prepend(htmlNote) : notesContainer.appendChild(htmlNote)
+    }
 }
 //funkcja przypięcia na początek 
 function pinnedNote (event) {
-  const elementDate = event.target.parentNode.querySelector('h4').innerHTML
-  const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
+    const elementDate = event.target.parentNode.querySelector('h4').innerHTML
+    const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
 
-  let testDate
-  notes.length = 0
+    let testDate
+    notes.length = 0
 
-  notesFromLocalStorage.map(note => {
-    notes.push(note)
-  })
+    notesFromLocalStorage.map(note => {
+        notes.push(note)
+    })
 
-  notes.forEach(note => {
-    testDate = new Date(note.createDate).toLocaleString()
+    notes.forEach(note => {
+        testDate = new Date(note.createDate).toLocaleString()
 
-    if (elementDate === testDate) {
-      note.pinned ? note.pinned = false : note.pinned = true
-    }
-    localStorage.removeItem(lsKey)
-    localStorage.setItem(lsKey, JSON.stringify(notes))
+        if (elementDate === testDate) {
+            note.pinned ? note.pinned = false : note.pinned = true
+        }
+        localStorage.removeItem(lsKey)
+        localStorage.setItem(lsKey, JSON.stringify(notes))
     
 
-  })
-  showNotes()
+    })
+    showNotes()
 }
    
 
 //funkcja usunięcia  przycisku
 function removeNote (event) {
-  event.target.parentNode.remove()
-  const elementDate = event.target.parentNode.querySelector('h4').innerHTML
-  const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
+    event.target.parentNode.remove()
+    const elementDate = event.target.parentNode.querySelector('h4').innerHTML
+    const notesFromLocalStorage = JSON.parse(localStorage.getItem(lsKey))
 
-  let testDate
-  notes.length = 0
-  const newNotes = []
+    let testDate
+    notes.length = 0
+    const newNotes = []
 
-  notesFromLocalStorage.map(note => {
-    notes.push(note)
-  })
+    notesFromLocalStorage.map(note => {
+        notes.push(note)
+    })
 
-  notes.forEach(note => {
-    testDate = new Date(note.createDate).toLocaleString()
+    notes.forEach(note => {
+        testDate = new Date(note.createDate).toLocaleString()
 
-    if (elementDate !== testDate) {
-      if (newNotes.includes(note) === false) {
-        newNotes.push(note)
-      }
-    }
-    console.log('nn notes after loop:', newNotes)
-    localStorage.removeItem(lsKey)
-    localStorage.setItem(lsKey, JSON.stringify(newNotes))
-  })
+        if (elementDate !== testDate) {
+            if (newNotes.includes(note) === false) {
+                newNotes.push(note)
+            }
+        }
+        localStorage.removeItem(lsKey)
+        localStorage.setItem(lsKey, JSON.stringify(newNotes))
+    })
 }
 // usuwanie elementu ze struktury html
 // notesContainer.removeChild()
 
-// 4. pobieranie danych z formularzy-tworzenie nowej notataki
+// pobieranie danych z formularzy-tworzenie nowej notataki
 document.querySelector('#noteAdd').addEventListener('click', onNewNote)
 // tworzy i zwraca nową notatke z zwartoscia podaną w formularzach
 function onNewNote () {
-  const title = document.querySelector('#noteTitle').value
-  const content = document.querySelector('#noteContent').value
-  const color = document.querySelector('#Color').value
-  console.log(title, content)
-  const newNote = Object.assign({}, note)
-  newNote.title = title
-  newNote.content = content
-  newNote.createDate = new Date()
-  newNote.colour = color
-  saveNote(newNote)
+    const title = document.querySelector('#noteTitle').value
+    const content = document.querySelector('#noteContent').value
+    const color = document.querySelector('#Color').value
+    console.log(title, content)
+    const newNote = Object.assign({}, note)
+    newNote.title = title
+    newNote.content = content
+    newNote.createDate = new Date()
+    newNote.colour = color
+    saveNote(newNote)
+    showNotes()
 }
