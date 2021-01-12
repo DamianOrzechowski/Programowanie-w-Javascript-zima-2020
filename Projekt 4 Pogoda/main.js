@@ -6,8 +6,8 @@ const cards = new Cards('#cardArea')
 cards.loadCardsFromLocalStorage()
 
 function addCity () {
-  document.querySelector('#cityName').value
-    ? cards.addCard(new Card(document.querySelector('#cityName').value))
-    : alert('Musisz podać nazwę miasta')
+    document.querySelector('#cityName').value
+        ? cards.addCard(new Card(document.querySelector('#cityName').value))
+        : alert('Musisz podać nazwę miasta')
 }
 

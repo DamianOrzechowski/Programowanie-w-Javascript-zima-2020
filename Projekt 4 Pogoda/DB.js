@@ -4,10 +4,10 @@ class Db {
     }
 
     saveCards(cards) {
-        localStorage.setItem(this.cardsLSKey, JSON.stringify(cards));
+        localStorage.setItem(this.cardsLSKey, JSON.stringify(cards))
     }
     getCards() {
-        return JSON.parse(localStorage.getItem(this.cardsLSKey));
+        return JSON.parse(localStorage.getItem(this.cardsLSKey))
         
     }
 }
