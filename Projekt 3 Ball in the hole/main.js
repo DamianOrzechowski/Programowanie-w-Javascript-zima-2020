@@ -83,7 +83,7 @@ function przesuwaniekuli(){ //poruszanie się kuli po planszy
         poY+=prY
         kula.style.top=poY+'px'  
     }
-    if(Math.abs((poY - dziurapoY)) < 5 && Math.abs((poX - dziurapoX)) <6){//sprawdzenie
+    if(Math.abs((poY - dziurapoY)) < 5 && Math.abs((poX - dziurapoX)) <5){//sprawdzenie
       
         Wygrales()
         

@@ -24,6 +24,7 @@ class Card {
 
     assignData (JsonData) {
         console.log(this.City, JsonData.data[0].max_temp)
+        this.City = JsonData.city_name
         this.Temperaturemax = JsonData.data[0].max_temp + '°C'
         this.Temperaturelow = JsonData.data[0].low_temp + '°C'
         this.rh = JsonData.data[0].rh
