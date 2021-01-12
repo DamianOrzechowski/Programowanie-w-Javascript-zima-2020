@@ -9,25 +9,6 @@ class Cards {
     }
 
     addCard (card) {
-        //pierwszy spsób
-        //card.fetchData()
-        /*const promises = new Promise((resolve,reject) =>{
-            setTimeout(() =>{resolve("overment") },2000)
-             
-        })
-        promises.then(
-          result=>  this.CardsArr.push(card)
-        )
-        promises.then(
-            result=>   this.UIcards.addCard(card)
-        )
-        promises.then(
-         result => this.db.saveCards(this.CardsArr))*/
-        ///////
-        /*const promises = new Promise((resolve,reject)=>{
-            resolve(card.fetchData())
-            
-        })*/
         card.fetchData().then(
             result=>  this.CardsArr.push(card)
 
@@ -38,7 +19,7 @@ class Cards {
           .then(
            result => {
                this.db.saveCards(this.CardsArr)
-               console.log('koniec dodawania')
+              
            })
            
 

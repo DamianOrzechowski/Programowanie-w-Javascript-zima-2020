@@ -20,8 +20,12 @@
   },
   "homepage": "https://github.com/DamianOrzechowski/Programowanie-w-Javascript-zima-2020#readme",
   "dependencies": {
-    "eslint": "^7.13.0",
     "live": "^0.1.25-beta.0",
     "server": "^1.0.31"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }
