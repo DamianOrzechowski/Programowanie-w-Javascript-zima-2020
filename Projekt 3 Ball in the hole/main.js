@@ -75,10 +75,13 @@ function orintacjaUrzadzenia(e){
     przesuwaniekuli()
 }
 function przesuwaniekuli(){ //poruszanie się kuli po planszy
+    //poziomie
     if(poX+prX<window.innerWidth-50 && poY+prX>0){  
         poX+=prX
         kula.style.left=poX+'px'        
     }
+    //pionie
+    
     if(poY+prY<window.innerHeight-50 && poY+prY>0){
         poY+=prY
         kula.style.top=poY+'px'  
