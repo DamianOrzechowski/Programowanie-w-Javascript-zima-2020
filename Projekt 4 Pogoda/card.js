@@ -14,7 +14,7 @@ class Card {
         this.Icon = 'abc.png'
     }
 
-    async fetchData () {
+    fetchData () {
         return fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${this.City},&key=${myKey}&lang=pl`)
             .then(response => {
                 return response.json()
